@@ -1,13 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Cards from "./components/organism/cards";
+import useSearch from "./hooks/useSearch";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+  const { headlines } = useSearch();
 
+  return (
+    <div className="flex justify-center">
+      <div className="sm:w-full lg:w-3/5 flex flex-col">
+        <header className="App-header" />
+        <Cards list={headlines} />
+      </div>
     </div>
   );
 }
