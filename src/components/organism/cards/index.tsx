@@ -1,14 +1,8 @@
-import Card from "../../molecules/card";
-
-type TCard = {
-  urlToImage: string;
-  title: string;
-  desc: string;
-  content: string;
-  publishedAt: string;
-};
+import { isValidArray } from "../../../utils/helpers";
+import Card, { TCard } from "../../molecules/card";
 
 function Cards({ list }: { list: TCard[] }) {
+  if (!isValidArray(list)) return null;
   return (
     <>
       {list.map((item, index) => (

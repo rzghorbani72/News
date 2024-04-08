@@ -3,15 +3,17 @@ import Description from "../../atoms/description";
 import Image from "../../atoms/image";
 import Title from "../../atoms/title";
 
-type TCard = {
+export type TCard = {
   urlToImage: string;
   title: string;
   desc: string;
   content: string;
   publishedAt: string;
+  author: string | null;
 };
 
 function Card({ item, index }: { item: TCard; index: number }) {
+  if (!item?.author) return null;
   return (
     <div key={index} className="h-30 w-auto flex mx-2 my-4">
       <div className="sm:w-1/3 lg:w-1/4">
